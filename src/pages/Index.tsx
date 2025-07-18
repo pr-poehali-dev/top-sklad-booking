@@ -25,7 +25,6 @@ export default function Index() {
               <a href="#оплата" className="text-gray-700 hover:text-red-600 transition-colors">Оплата</a>
               <a href="#контакты" className="text-gray-700 hover:text-red-600 transition-colors">Контакты</a>
             </nav>
-            <Button>Войти</Button>
           </div>
         </div>
       </header>
@@ -105,10 +104,10 @@ export default function Index() {
                   <Icon name="Package2" className="w-10 h-10 text-red-600" />
                 </div>
                 <CardTitle>Средняя</CardTitle>
-                <CardDescription>2м² • 150×150×200см</CardDescription>
+                <CardDescription>1м³ • 100×100×100см</CardDescription>
               </CardHeader>
               <CardContent className="text-center">
-                <div className="text-2xl font-bold text-red-600 mb-2">3,500₽</div>
+                <div className="text-2xl font-bold text-red-600 mb-2">990₽</div>
                 <p className="text-sm text-gray-600">в месяц</p>
                 <Badge variant="secondary" className="mt-2">Коробки, чемоданы</Badge>
               </CardContent>

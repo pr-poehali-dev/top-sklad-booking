@@ -29,7 +29,13 @@ export default function BookingForm() {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const calculatePrice = (months: number) => {
-    return 3500 * months;
+    const prices = {
+      1: 990,
+      3: 2670,
+      6: 4740,
+      12: 9480
+    };
+    return prices[months as keyof typeof prices] || 0;
   };
 
   const handlePeriodChange = (value: string) => {
@@ -85,7 +91,7 @@ export default function BookingForm() {
           <Card className="border-red-100">
             <CardHeader>
               <CardTitle className="text-red-600">Бронирование ячейки</CardTitle>
-              <CardDescription>Ячейка среднего размера (2м²) - 3,500₽ в месяц</CardDescription>
+              <CardDescription>Ячейка среднего размера (1м³) - 990₽ в месяц</CardDescription>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="new" className="w-full">

@@ -296,7 +296,7 @@ export default function Index() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Icon name="Mail" className="w-5 h-5 text-red-600" />
-                    <span className="text-gray-700">info@topsklad.ru</span>
+                    <span className="text-gray-700">topvendingtramvainaia@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Icon name="MapPin" className="w-5 h-5 text-red-600" />

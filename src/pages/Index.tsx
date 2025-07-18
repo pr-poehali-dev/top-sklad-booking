@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
+import BookingForm from "@/components/BookingForm";
 
 export default function Index() {
   return (
@@ -89,81 +87,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Booking Section */}
-      <section id="бронирование" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              Бронирование ячейки
-            </h2>
-            
-            <Card className="border-red-100">
-              <CardHeader>
-                <CardTitle className="text-red-600">Выберите размер и срок аренды</CardTitle>
-                <CardDescription>Мы предлагаем различные размеры ячеек для ваших потребностей</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="size">Размер ячейки</Label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите размер" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="small">Маленькая (1м²) - 2,000₽</SelectItem>
-                        <SelectItem value="medium">Средняя (2м²) - 3,500₽</SelectItem>
-                        <SelectItem value="large">Большая (4м²) - 6,000₽</SelectItem>
-                        <SelectItem value="xlarge">Очень большая (8м²) - 10,000₽</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="period">Срок аренды</Label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите срок" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="day">1 день</SelectItem>
-                        <SelectItem value="week">1 неделя (-5%)</SelectItem>
-                        <SelectItem value="month">1 месяц (-10%)</SelectItem>
-                        <SelectItem value="quarter">3 месяца (-15%)</SelectItem>
-                        <SelectItem value="year">1 год (-25%)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Имя</Label>
-                    <Input id="name" placeholder="Ваше имя" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Телефон</Label>
-                    <Input id="phone" placeholder="+7 (999) 123-45-67" />
-                  </div>
-                </div>
-                
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-700">Стоимость:</span>
-                    <span className="text-2xl font-bold text-red-600">2,000₽</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-1">За выбранный период</p>
-                </div>
-                
-                <Button className="w-full bg-red-600 hover:bg-red-700" size="lg">
-                  Забронировать ячейку
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <BookingForm />
 
       {/* Cell Sizes */}
       <section className="py-16 bg-white">

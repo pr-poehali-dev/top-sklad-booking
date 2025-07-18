@@ -172,23 +172,8 @@ export default function Index() {
             Размеры ячеек
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-red-100 hover:border-red-300 transition-colors">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Package" className="w-10 h-10 text-red-600" />
-                </div>
-                <CardTitle>Маленькая</CardTitle>
-                <CardDescription>1м² • 100×100×200см</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <div className="text-2xl font-bold text-red-600 mb-2">2,000₽</div>
-                <p className="text-sm text-gray-600">в месяц</p>
-                <Badge variant="secondary" className="mt-2">Документы, одежда</Badge>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-red-100 hover:border-red-300 transition-colors">
+          <div className="flex justify-center">
+            <Card className="border-red-100 hover:border-red-300 transition-colors max-w-sm">
               <CardHeader className="text-center">
                 <div className="w-20 h-20 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Icon name="Package2" className="w-10 h-10 text-red-600" />
@@ -200,36 +185,6 @@ export default function Index() {
                 <div className="text-2xl font-bold text-red-600 mb-2">3,500₽</div>
                 <p className="text-sm text-gray-600">в месяц</p>
                 <Badge variant="secondary" className="mt-2">Коробки, чемоданы</Badge>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-red-100 hover:border-red-300 transition-colors">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Truck" className="w-10 h-10 text-red-600" />
-                </div>
-                <CardTitle>Большая</CardTitle>
-                <CardDescription>4м² • 200×200×200см</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <div className="text-2xl font-bold text-red-600 mb-2">6,000₽</div>
-                <p className="text-sm text-gray-600">в месяц</p>
-                <Badge variant="secondary" className="mt-2">Мебель, техника</Badge>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-red-100 hover:border-red-300 transition-colors">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Warehouse" className="w-10 h-10 text-red-600" />
-                </div>
-                <CardTitle>Очень большая</CardTitle>
-                <CardDescription>8м² • 300×300×200см</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <div className="text-2xl font-bold text-red-600 mb-2">10,000₽</div>
-                <p className="text-sm text-gray-600">в месяц</p>
-                <Badge variant="secondary" className="mt-2">Автозапчасти</Badge>
               </CardContent>
             </Card>
           </div>

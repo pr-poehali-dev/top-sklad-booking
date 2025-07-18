@@ -41,11 +41,11 @@ export default function Index() {
               Современный склад с индивидуальными ячейками. Безопасность, удобство и доступность 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-red-600 hover:bg-red-700">
-                Забронировать ячейку
+              <Button size="lg" className="bg-red-600 hover:bg-red-700" asChild>
+                <a href="#бронирование">Забронировать ячейку</a>
               </Button>
-              <Button size="lg" variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
-                Узнать больше
+              <Button size="lg" variant="outline" className="border-red-600 text-red-600 hover:bg-red-50" asChild>
+                <a href="#контакты">Узнать больше</a>
               </Button>
             </div>
           </div>

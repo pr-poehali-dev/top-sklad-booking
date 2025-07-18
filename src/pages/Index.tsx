@@ -292,7 +292,7 @@ export default function Index() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Icon name="Phone" className="w-5 h-5 text-red-600" />
-                    <span className="text-gray-700">+7 (495) 123-45-67</span>
+                    <span className="text-gray-700">+7 918 115 22 05</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Icon name="Mail" className="w-5 h-5 text-red-600" />
@@ -300,7 +300,7 @@ export default function Index() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Icon name="MapPin" className="w-5 h-5 text-red-600" />
-                    <span className="text-gray-700">г. Москва, ул. Складская, 15</span>
+                    <span className="text-gray-700">Московская область, городской округ Клин, деревня Новощапово, 16, стр. 2</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Icon name="Clock" className="w-5 h-5 text-red-600" />

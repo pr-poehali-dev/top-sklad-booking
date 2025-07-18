@@ -48,6 +48,41 @@ export default function Index() {
               </Button>
             </div>
           </div>
+          
+          {/* Photo Gallery */}
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">Наши склады</h2>
+            <div className="flex gap-6 overflow-x-auto pb-4 px-4 scrollbar-hide">
+              <div className="flex-shrink-0">
+                <img 
+                  src="https://cdn.poehali.dev/files/9ea4b284-dffe-4b7e-a4cf-bbc0a9ecbe11.jpg" 
+                  alt="Склад изнутри - красные ячейки" 
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-red-100 hover:border-red-300 transition-colors cursor-pointer"
+                />
+              </div>
+              <div className="flex-shrink-0">
+                <img 
+                  src="https://cdn.poehali.dev/files/ee46ecef-a28b-4b75-bf6b-8ee19c9352c3.jpg" 
+                  alt="Коридор склада с ячейками" 
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-red-100 hover:border-red-300 transition-colors cursor-pointer"
+                />
+              </div>
+              <div className="flex-shrink-0">
+                <img 
+                  src="img/5a28e427-da5f-44f0-a22f-e810faa1094c.jpg" 
+                  alt="Современный склад" 
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-red-100 hover:border-red-300 transition-colors cursor-pointer"
+                />
+              </div>
+              <div className="flex-shrink-0">
+                <img 
+                  src="img/2b9410d4-023e-4a71-a255-5771d6eade64.jpg" 
+                  alt="Ячейки крупным планом" 
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-red-100 hover:border-red-300 transition-colors cursor-pointer"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

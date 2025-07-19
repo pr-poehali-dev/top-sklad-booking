@@ -52,31 +52,56 @@ export default function BookingForm() {
     }
 
     try {
-      // Simulate SMS sending
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // SMS to admin
-      console.log(`SMS to +7 918 115 22 05: Новое бронирование от ${formData.name} (${formData.phone}) на ${formData.period} мес.`);
-      
-      // SMS to user (if new registration)
-      if (formData.isNewUser) {
-        console.log(`SMS to ${formData.phone}: Добро пожаловать! Ваш аккаунт создан. Бронирование ячейки на ${formData.period} мес.`);
-      }
-      
-      toast.success('Бронирование оформлено! SMS-уведомления отправлены.');
-      
-      // Reset form
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        period: '',
-        isNewUser: true,
-        password: ''
+      // Prepare form data for Formspree
+      const formDataToSend = new FormData();
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('period', `${formData.period} месяц(ев)`);
+      formDataToSend.append('total_price', `${totalPrice.toLocaleString()}₽`);
+      formDataToSend.append('user_type', formData.isNewUser ? 'Новый пользователь' : 'Существующий пользователь');
+      formDataToSend.append('message', `
+🔥 НОВОЕ БРОНИРОВАНИЕ ЯЧЕЙКИ! 🔥
+
+👤 Клиент: ${formData.name}
+📱 Телефон: ${formData.phone}
+📧 Email: ${formData.email}
+⏱️ Срок аренды: ${formData.period} месяц(ев)
+💰 Сумма: ${totalPrice.toLocaleString()}₽
+👥 Тип: ${formData.isNewUser ? 'Новый пользователь' : 'Существующий пользователь'}
+
+📍 Склад: Краснодар, ул. Красная 123
+🕐 Время подачи заявки: ${new Date().toLocaleString('ru-RU')}
+      `);
+
+      // Send to Formspree (which forwards to email and telegram)
+      const response = await fetch('https://formspree.io/f/mnnznkww', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
-      setTotalPrice(0);
+
+      if (response.ok) {
+        toast.success('🎉 Бронирование оформлено! Уведомления отправлены на почту и в Телеграм.');
+        
+        // Reset form
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          period: '',
+          isNewUser: true,
+          password: ''
+        });
+        setTotalPrice(0);
+      } else {
+        throw new Error('Ошибка отправки');
+      }
     } catch (error) {
-      toast.error('Ошибка при оформлении бронирования');
+      toast.error('Ошибка при оформлении бронирования. Попробуйте снова.');
+      console.error('Form submission error:', error);
     }
   };
 

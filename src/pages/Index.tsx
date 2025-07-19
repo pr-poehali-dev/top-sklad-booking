@@ -7,6 +7,13 @@ import PhotoGallery from "@/components/PhotoGallery";
 import ContactForm from "@/components/ContactForm";
 
 export default function Index() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -20,10 +27,10 @@ export default function Index() {
               <span className="text-2xl font-bold text-gray-900">ТопСклад</span>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <a href="#главная" className="text-gray-700 hover:text-red-600 transition-colors">Главная</a>
-              <a href="#бронирование" className="text-gray-700 hover:text-red-600 transition-colors">Бронирование</a>
-              <a href="#оплата" className="text-gray-700 hover:text-red-600 transition-colors">Оплата</a>
-              <a href="#контакты" className="text-gray-700 hover:text-red-600 transition-colors">Контакты</a>
+              <button onClick={() => scrollToSection('главная')} className="text-gray-700 hover:text-red-600 transition-colors">Главная</button>
+              <button onClick={() => scrollToSection('бронирование')} className="text-gray-700 hover:text-red-600 transition-colors">Бронирование</button>
+              <button onClick={() => scrollToSection('оплата')} className="text-gray-700 hover:text-red-600 transition-colors">Оплата</button>
+              <button onClick={() => scrollToSection('контакты')} className="text-gray-700 hover:text-red-600 transition-colors">Контакты</button>
             </nav>
           </div>
         </div>
@@ -40,11 +47,11 @@ export default function Index() {
               Современный склад с индивидуальными ячейками. Безопасность, удобство и доступность 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-red-600 hover:bg-red-700" asChild>
-                <a href="#бронирование">Забронировать ячейку</a>
+              <Button size="lg" className="bg-red-600 hover:bg-red-700" onClick={() => scrollToSection('бронирование')}>
+                Забронировать ячейку
               </Button>
-              <Button size="lg" variant="outline" className="border-red-600 text-red-600 hover:bg-red-50" asChild>
-                <a href="#контакты">Узнать больше</a>
+              <Button size="lg" variant="outline" className="border-red-600 text-red-600 hover:bg-red-50" onClick={() => scrollToSection('контакты')}>
+                Узнать больше
               </Button>
             </div>
           </div>

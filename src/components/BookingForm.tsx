@@ -12,6 +12,7 @@ interface BookingFormData {
   phone: string;
   email: string;
   period: string;
+  startDate: string;
   isNewUser: boolean;
   password?: string;
 }
@@ -22,20 +23,23 @@ export default function BookingForm() {
     phone: '',
     email: '',
     period: '',
+    startDate: '',
     isNewUser: true,
     password: ''
   });
 
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const priceRates = {
+    1: { rate: 990, label: '1 Месяц 990₽/мес.' },
+    3: { rate: 890, label: '3 Месяца 890₽/мес.' },
+    6: { rate: 790, label: '6 Месяцев 790₽/мес.' },
+    12: { rate: 790, label: '1 Год 790₽/мес.' }
+  };
+
   const calculatePrice = (months: number) => {
-    const prices = {
-      1: 990,
-      3: 2670,
-      6: 4740,
-      12: 9480
-    };
-    return prices[months as keyof typeof prices] || 0;
+    const rate = priceRates[months as keyof typeof priceRates]?.rate || 0;
+    return rate * months;
   };
 
   const handlePeriodChange = (value: string) => {
@@ -46,7 +50,7 @@ export default function BookingForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.phone || !formData.email || !formData.period) {
+    if (!formData.name || !formData.phone || !formData.email || !formData.period || !formData.startDate) {
       toast.error('Заполните все поля');
       return;
     }
@@ -58,6 +62,7 @@ export default function BookingForm() {
       formDataToSend.append('name', formData.name);
       formDataToSend.append('phone', formData.phone);
       formDataToSend.append('period', `${formData.period} месяц(ев)`);
+      formDataToSend.append('start_date', formData.startDate);
       formDataToSend.append('total_price', `${totalPrice.toLocaleString()}₽`);
       formDataToSend.append('user_type', formData.isNewUser ? 'Новый пользователь' : 'Существующий пользователь');
       formDataToSend.append('message', `
@@ -67,6 +72,7 @@ export default function BookingForm() {
 📱 Телефон: ${formData.phone}
 📧 Email: ${formData.email}
 ⏱️ Срок аренды: ${formData.period} месяц(ев)
+📅 Дата начала: ${formData.startDate}
 💰 Сумма: ${totalPrice.toLocaleString()}₽
 👥 Тип: ${formData.isNewUser ? 'Новый пользователь' : 'Существующий пользователь'}
 
@@ -92,6 +98,7 @@ export default function BookingForm() {
           phone: '',
           email: '',
           period: '',
+          startDate: '',
           isNewUser: true,
           password: ''
         });
@@ -116,7 +123,7 @@ export default function BookingForm() {
           <Card className="border-red-100">
             <CardHeader>
               <CardTitle className="text-red-600">Бронирование ячейки</CardTitle>
-              <CardDescription>Ячейка среднего размера (1м³) - 990₽ в месяц</CardDescription>
+              <CardDescription>Ячейка среднего размера (1м³) - от 790₽ в месяц</CardDescription>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="new" className="w-full">
@@ -130,19 +137,32 @@ export default function BookingForm() {
                 </TabsList>
                 
                 <form onSubmit={handleSubmit} className="space-y-6 mt-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="period">Срок аренды</Label>
-                    <Select value={formData.period} onValueChange={handlePeriodChange}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите срок" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1">1 месяц</SelectItem>
-                        <SelectItem value="3">3 месяца</SelectItem>
-                        <SelectItem value="6">6 месяцев</SelectItem>
-                        <SelectItem value="12">1 год</SelectItem>
-                      </SelectContent>
-                    </Select>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="period">Выберите срок</Label>
+                      <Select value={formData.period} onValueChange={handlePeriodChange}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Выберите срок" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1">{priceRates[1].label}</SelectItem>
+                          <SelectItem value="3">{priceRates[3].label}</SelectItem>
+                          <SelectItem value="6">{priceRates[6].label}</SelectItem>
+                          <SelectItem value="12">{priceRates[12].label}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="startDate">Дата начала хранения</Label>
+                      <Input
+                        id="startDate"
+                        type="date"
+                        value={formData.startDate}
+                        onChange={(e) => setFormData({...formData, startDate: e.target.value})}
+                        min={new Date().toISOString().split('T')[0]}
+                      />
+                    </div>
                   </div>
 
                   <TabsContent value="new" className="space-y-4">
@@ -222,8 +242,13 @@ export default function BookingForm() {
                         <span className="text-2xl font-bold text-red-600">{totalPrice.toLocaleString()}₽</span>
                       </div>
                       <p className="text-sm text-gray-600 mt-1">
-                        За {formData.period} {parseInt(formData.period) === 1 ? 'месяц' : 'месяцев'}
+                        {priceRates[parseInt(formData.period) as keyof typeof priceRates]?.rate}₽/мес × {formData.period} {parseInt(formData.period) === 1 ? 'месяц' : 'месяцев'}
                       </p>
+                      {formData.startDate && (
+                        <p className="text-sm text-gray-600">
+                          Начало хранения: {new Date(formData.startDate).toLocaleDateString('ru-RU')}
+                        </p>
+                      )}
                     </div>
                   )}
                   

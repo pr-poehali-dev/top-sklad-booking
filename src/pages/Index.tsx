@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
 import BookingForm from "@/components/BookingForm";
 import PhotoGallery from "@/components/PhotoGallery";
+import ContactForm from "@/components/ContactForm";
 
 export default function Index() {
   return (
@@ -196,27 +195,8 @@ export default function Index() {
                 <CardHeader>
                   <CardTitle className="text-red-600">Задать вопрос</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="contact-name">Имя</Label>
-                    <Input id="contact-name" placeholder="Ваше имя" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="contact-email">Email</Label>
-                    <Input id="contact-email" type="email" placeholder="your@email.com" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Сообщение</Label>
-                    <textarea 
-                      id="message"
-                      className="w-full p-3 border border-gray-300 rounded-md"
-                      rows={4}
-                      placeholder="Ваше сообщение..."
-                    />
-                  </div>
-                  <Button className="w-full bg-red-600 hover:bg-red-700">
-                    Отправить
-                  </Button>
+                <CardContent>
+                  <ContactForm />
                 </CardContent>
               </Card>
             </div>

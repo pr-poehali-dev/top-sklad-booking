@@ -9,77 +9,188 @@ export default function PrivacyPolicy() {
       <header className="border-b border-gray-100 bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
+            <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
               <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
                 <Icon name="Archive" className="w-5 h-5 text-white" />
               </div>
               <span className="text-2xl font-bold text-gray-900">ТопСклад</span>
-            </div>
+            </a>
             <Button 
               variant="outline" 
-              onClick={() => window.history.back()}
+              onClick={() => window.location.href = '/'}
               className="border-red-600 text-red-600 hover:bg-red-50"
             >
               <Icon name="ArrowLeft" className="w-4 h-4 mr-2" />
-              Назад
+              На главную
             </Button>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="py-16">
+      <main className="py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-              Политика конфиденциальности
-            </h1>
+            <div className="text-center mb-12">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Политика конфиденциальности
+              </h1>
+              <p className="text-gray-600">
+                Услуги аренды складских ячеек ТопСклад
+              </p>
+              <p className="text-sm text-gray-500 mt-2">
+                Последнее обновление: 20 июля 2024 года
+              </p>
+            </div>
             
             <Card className="border-red-100 mb-8">
               <CardHeader>
-                <CardTitle className="text-red-600">Общие положения</CardTitle>
+                <CardTitle className="text-red-600 flex items-center">
+                  <Icon name="Shield" className="w-5 h-5 mr-2" />
+                  О нашей политике
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-700">
-                  Настоящая политика обработки персональных данных составлена в соответствии с требованиями 
-                  Федерального закона от 27.07.2006. №152-ФЗ «О персональных данных» и определяет порядок 
-                  обработки персональных данных и меры по обеспечению безопасности персональных данных 
-                  ИП Топольников Вадим Алексеевич (далее – Оператор).
+                <p className="text-gray-700 leading-relaxed">
+                  ТопСклад серьезно относится к защите ваших персональных данных. Эта политика объясняет, 
+                  как мы собираем, используем и защищаем вашу информацию при предоставлении услуг аренды 
+                  складских ячеек.
                 </p>
-                <p className="text-gray-700">
-                  Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение 
-                  прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты 
-                  прав на неприкосновенность частной жизни, личную и семейную тайну.
+                <p className="text-gray-700 leading-relaxed">
+                  Настоящая политика разработана в соответствии с Федеральным законом РФ №152-ФЗ 
+                  «О персональных данных» и применяется ко всем услугам ТопСклад.
                 </p>
-                <p className="text-gray-700">
-                  Настоящая политика Оператора в отношении обработки персональных данных (далее – Политика) 
-                  применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта 
-                  складских услуг ТопСклад.
-                </p>
+                <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                  <p className="text-blue-800 font-medium">
+                    💡 Используя наши услуги, вы соглашаетесь с условиями данной политики конфиденциальности.
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
             <Card className="border-red-100 mb-8">
               <CardHeader>
-                <CardTitle className="text-red-600">Основные понятия</CardTitle>
+                <CardTitle className="text-red-600 flex items-center">
+                  <Icon name="Database" className="w-5 h-5 mr-2" />
+                  Какие данные мы собираем
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid gap-4">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Автоматизированная обработка персональных данных</h4>
-                    <p className="text-gray-700">обработка персональных данных с помощью средств вычислительной техники;</p>
+                <p className="text-gray-700">
+                  Для предоставления наших услуг мы собираем следующую информацию:
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-gray-900 mb-2">📋 Контактная информация</h4>
+                    <ul className="text-gray-700 space-y-1">
+                      <li>• Имя и фамилия</li>
+                      <li>• Номер телефона</li>
+                      <li>• Адрес электронной почты</li>
+                    </ul>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Блокирование персональных данных</h4>
-                    <p className="text-gray-700">временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных);</p>
+
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-gray-900 mb-2">🏢 Данные об аренде</h4>
+                    <ul className="text-gray-700 space-y-1">
+                      <li>• Период аренды складской ячейки</li>
+                      <li>• Дата начала и окончания аренды</li>
+                      <li>• Номер ячейки и её характеристики</li>
+                    </ul>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Персональные данные</h4>
-                    <p className="text-gray-700">любая информация, относящаяся прямо или косвенно к определенному или определяемому пользователю веб-сайта ТопСклад;</p>
+
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-gray-900 mb-2">💳 Платежная информация</h4>
+                    <ul className="text-gray-700 space-y-1">
+                      <li>• Данные о произведенных платежах</li>
+                      <li>• История транзакций</li>
+                      <li>• Способ оплаты (без данных карты)</li>
+                    </ul>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Обработка персональных данных</h4>
-                    <p className="text-gray-700">любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными;</p>
+                </div>
+
+                <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                  <p className="text-yellow-800">
+                    ⚠️ Мы НЕ храним данные банковских карт. Все платежи обрабатываются через защищенные платежные системы.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-red-100 mb-8">
+              <CardHeader>
+                <CardTitle className="text-red-600 flex items-center">
+                  <Icon name="Target" className="w-5 h-5 mr-2" />
+                  Как мы используем ваши данные
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-gray-700">
+                  Ваши персональные данные используются исключительно для:
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-green-800 mb-2">✅ Основные услуги</h4>
+                    <ul className="text-green-700 space-y-1 text-sm">
+                      <li>• Оформление договора аренды</li>
+                      <li>• Предоставление доступа к ячейке</li>
+                      <li>• Обработка платежей</li>
+                      <li>• Выставление счетов</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-blue-800 mb-2">📞 Связь с клиентами</h4>
+                    <ul className="text-blue-700 space-y-1 text-sm">
+                      <li>• Уведомления об оплате</li>
+                      <li>• Напоминания о сроках аренды</li>
+                      <li>• Техническая поддержка</li>
+                      <li>• Важная информация о складе</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                  <h4 className="font-semibold text-red-800 mb-2">🚫 Мы НЕ используем ваши данные для:</h4>
+                  <ul className="text-red-700 space-y-1">
+                    <li>• Рекламных рассылок без согласия</li>
+                    <li>• Продажи третьим лицам</li>
+                    <li>• Целей, не связанных с нашими услугами</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-red-100 mb-8">
+              <CardHeader>
+                <CardTitle className="text-red-600 flex items-center">
+                  <Icon name="Shield" className="w-5 h-5 mr-2" />
+                  Безопасность ваших данных
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-gray-700">
+                  Мы принимаем серьезные меры для защиты ваших персональных данных:
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="text-center p-4 bg-gray-50 rounded-lg">
+                    <Icon name="Lock" className="w-8 h-8 text-red-600 mx-auto mb-2" />
+                    <h4 className="font-semibold text-gray-900 mb-1">Шифрование</h4>
+                    <p className="text-sm text-gray-600">SSL-сертификаты для защиты передачи данных</p>
+                  </div>
+
+                  <div className="text-center p-4 bg-gray-50 rounded-lg">
+                    <Icon name="Eye" className="w-8 h-8 text-red-600 mx-auto mb-2" />
+                    <h4 className="font-semibold text-gray-900 mb-1">Контроль доступа</h4>
+                    <p className="text-sm text-gray-600">Ограниченный доступ только для сотрудников</p>
+                  </div>
+
+                  <div className="text-center p-4 bg-gray-50 rounded-lg">
+                    <Icon name="Server" className="w-8 h-8 text-red-600 mx-auto mb-2" />
+                    <h4 className="font-semibold text-gray-900 mb-1">Безопасное хранение</h4>
+                    <p className="text-sm text-gray-600">Защищенные серверы в России</p>
                   </div>
                 </div>
               </CardContent>
@@ -87,114 +198,118 @@ export default function PrivacyPolicy() {
 
             <Card className="border-red-100 mb-8">
               <CardHeader>
-                <CardTitle className="text-red-600">Сбор и обработка персональных данных</CardTitle>
+                <CardTitle className="text-red-600 flex items-center">
+                  <Icon name="User" className="w-5 h-5 mr-2" />
+                  Ваши права
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-gray-700">
-                  Оператор собирает и обрабатывает следующие персональные данные пользователей:
+                  В соответствии с законодательством РФ, вы имеете право:
                 </p>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  <li>Имя и фамилия</li>
-                  <li>Номер телефона</li>
-                  <li>Адрес электронной почты</li>
-                  <li>Данные о периоде аренды складских ячеек</li>
-                  <li>Данные об оплате услуг</li>
-                </ul>
-                <p className="text-gray-700">
-                  Персональные данные обрабатываются в следующих целях:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  <li>Предоставление услуг аренды складских ячеек</li>
-                  <li>Связь с клиентами для уточнения деталей заказа</li>
-                  <li>Обработка платежей и ведение финансовой отчетности</li>
-                  <li>Информирование об изменениях в работе склада</li>
-                  <li>Обеспечение безопасности и контроля доступа</li>
-                </ul>
-              </CardContent>
-            </Card>
 
-            <Card className="border-red-100 mb-8">
-              <CardHeader>
-                <CardTitle className="text-red-600">Права субъекта персональных данных</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700">
-                  Субъект персональных данных имеет право:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  <li>получать информацию, касающуюся обработки его персональных данных</li>
-                  <li>требовать уточнения его персональных данных, их блокирования или уничтожения</li>
-                  <li>отзывать согласие на обработку персональных данных</li>
-                  <li>обжаловать действия или бездействие Оператора</li>
-                  <li>на защиту своих прав и законных интересов</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-red-100 mb-8">
-              <CardHeader>
-                <CardTitle className="text-red-600">Безопасность персональных данных</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700">
-                  Оператор принимает необходимые правовые, организационные и технические меры для защиты 
-                  персональных данных от неправомерного или случайного доступа к ним, уничтожения, изменения, 
-                  блокирования, копирования, предоставления, распространения персональных данных, а также 
-                  от иных неправомерных действий в отношении персональных данных.
-                </p>
-                <p className="text-gray-700">
-                  Обработка персональных данных может осуществляться только в случае наличия согласия в 
-                  письменной форме субъекта персональных данных на обработку его персональных данных и/или 
-                  исполнения договора, стороной которого является субъект персональных данных.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-red-100 mb-8">
-              <CardHeader>
-                <CardTitle className="text-red-600">Контактная информация</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700">
-                  Пользователь может получить любые разъяснения по интересующим вопросам, касающимся обработки 
-                  его персональных данных, обратившись к Оператору по следующим контактам:
-                </p>
                 <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <Icon name="Mail" className="w-5 h-5 text-red-600" />
-                    <span className="text-gray-700">topvendingtramvainaia@gmail.com</span>
+                  <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <Icon name="Info" className="w-5 h-5 text-blue-600 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Получить информацию</h4>
+                      <p className="text-sm text-gray-600">о том, какие ваши данные мы храним и обрабатываем</p>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Icon name="Phone" className="w-5 h-5 text-red-600" />
-                    <span className="text-gray-700">+7 918 115 22 05</span>
+
+                  <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <Icon name="Edit" className="w-5 h-5 text-green-600 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Изменить данные</h4>
+                      <p className="text-sm text-gray-600">исправить неточную или устаревшую информацию</p>
+                    </div>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <Icon name="MapPin" className="w-5 h-5 text-red-600 mt-1" />
-                    <span className="text-gray-700">
-                      Московская область, городской округ Клин, деревня Новощапово, 16, стр. 2
-                    </span>
+
+                  <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <Icon name="Trash2" className="w-5 h-5 text-red-600 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Удалить данные</h4>
+                      <p className="text-sm text-gray-600">потребовать удаления ваших персональных данных</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <Icon name="X" className="w-5 h-5 text-orange-600 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Отозвать согласие</h4>
+                      <p className="text-sm text-gray-600">в любое время прекратить обработку данных</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                  <p className="text-green-800">
+                    📞 Для реализации ваших прав свяжитесь с нами по телефону +7 918 115 22 05 
+                    или email: topvendingtramvainaia@gmail.com
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-red-100 mb-8">
+              <CardHeader>
+                <CardTitle className="text-red-600 flex items-center">
+                  <Icon name="Phone" className="w-5 h-5 mr-2" />
+                  Контакты
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <p className="text-gray-700">
+                    По вопросам обработки персональных данных обращайтесь:
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3">
+                        <Icon name="Phone" className="w-5 h-5 text-red-600" />
+                        <span className="text-gray-700">+7 918 115 22 05</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <Icon name="Mail" className="w-5 h-5 text-red-600" />
+                        <span className="text-gray-700">topvendingtramvainaia@gmail.com</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <Icon name="Clock" className="w-5 h-5 text-red-600" />
+                        <span className="text-gray-700">Ответим в течение 24 часов</span>
+                      </div>
+                    </div>
+
+                    <div className="bg-red-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-gray-900 mb-2">Индивидуальный предприниматель</h4>
+                      <p className="text-gray-700 text-sm">Топольников Вадим Алексеевич</p>
+                      <p className="text-gray-700 text-sm">ОГРНИП: 309230830900063</p>
+                      <p className="text-gray-700 text-sm">ИНН: 230811433627</p>
+                    </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="border-red-100">
-              <CardHeader>
-                <CardTitle className="text-red-600">Заключительные положения</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700">
-                  В данном документе будут отражены любые изменения политики обработки персональных данных Оператором. 
-                  Политика действует бессрочно до замены ее новой версией.
-                </p>
-                <p className="text-gray-700">
-                  Актуальная версия Политики в свободном доступе расположена на данной странице.
-                </p>
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">Реквизиты оператора:</h4>
-                  <p className="text-gray-700">ИП Топольников Вадим Алексеевич</p>
-                  <p className="text-gray-700">ОГРНИП 309230830900063</p>
-                  <p className="text-gray-700">ИНН 230811433627</p>
+              <CardContent className="p-6">
+                <div className="text-center space-y-4">
+                  <Icon name="CheckCircle" className="w-12 h-12 text-green-600 mx-auto" />
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Ваши данные под надежной защитой
+                  </h3>
+                  <p className="text-gray-600 max-w-2xl mx-auto">
+                    Мы используем современные технологии для защиты ваших персональных данных и 
+                    строго соблюдаем требования российского законодательства о персональных данных.
+                  </p>
+                  <div className="flex justify-center">
+                    <Button 
+                      onClick={() => window.location.href = '/'}
+                      className="bg-red-600 hover:bg-red-700"
+                    >
+                      Вернуться на главную
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>

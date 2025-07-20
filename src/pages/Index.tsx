@@ -237,24 +237,24 @@ export default function Index() {
               <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">
                 1
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Выберите тариф</h3>
-              <p className="text-gray-600 text-sm">Выберите подходящий период аренды</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Выберите срок бронирования</h3>
+              <p className="text-gray-600 text-sm">Определите подходящий период аренды ячейки</p>
             </div>
             
             <div className="text-center">
               <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">
                 2
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Оформите бронь</h3>
-              <p className="text-gray-600 text-sm">Заполните форму и оплатите аренду</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Оформите бронирование</h3>
+              <p className="text-gray-600 text-sm">Заполните форму и произведите оплату</p>
             </div>
             
             <div className="text-center">
               <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">
                 3
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Получите доступ</h3>
-              <p className="text-gray-600 text-sm">Мы вышлем вам код доступа к ячейке</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Задайте свой код доступа к ячейке</h3>
+              <p className="text-gray-600 text-sm">Получите персональный код для входа в ячейку</p>
             </div>
             
             <div className="text-center">
@@ -262,7 +262,7 @@ export default function Index() {
                 4
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Пользуйтесь</h3>
-              <p className="text-gray-600 text-sm">Приезжайте в любое время 24/7</p>
+              <p className="text-gray-600 text-sm">Круглосуточный доступ к вашим вещам</p>
             </div>
           </div>
         </div>
@@ -276,7 +276,7 @@ export default function Index() {
               О нас
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              ТопСклад — современный складской комплекс, работающий с 2020 года. 
+              ТопСклад — современный складской комплекс, работающий с 2022 года. 
               Мы предоставляем надежные и безопасные услуги хранения для частных лиц.
             </p>
             <p className="text-gray-600 mb-8">
@@ -287,11 +287,11 @@ export default function Index() {
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-red-600 mb-2">4+</div>
-                <p className="text-gray-600">лет на рынке</p>
+                <div className="text-3xl font-bold text-red-600 mb-2">2022</div>
+                <p className="text-gray-600">год основания</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-red-600 mb-2">500+</div>
+                <div className="text-3xl font-bold text-red-600 mb-2">50+</div>
                 <p className="text-gray-600">довольных клиентов</p>
               </div>
               <div className="text-center">

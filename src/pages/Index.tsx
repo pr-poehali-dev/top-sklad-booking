@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,11 +8,14 @@ import PhotoGallery from "@/components/PhotoGallery";
 import ContactForm from "@/components/ContactForm";
 
 export default function Index() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -32,6 +36,28 @@ export default function Index() {
               <button onClick={() => scrollToSection('оплата')} className="text-gray-700 hover:text-red-600 transition-colors">Оплата</button>
               <button onClick={() => scrollToSection('контакты')} className="text-gray-700 hover:text-red-600 transition-colors">Контакты</button>
             </nav>
+            
+            {/* Mobile menu button */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2"
+              aria-label="Toggle menu"
+            >
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} className="w-6 h-6 text-gray-700" />
+            </button>
+          </div>
+          
+          {/* Mobile menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 border-t border-gray-100 pt-4">
+              <nav className="flex flex-col space-y-2">
+                <button onClick={() => scrollToSection('главная')} className="text-left py-2 text-gray-700 hover:text-red-600 transition-colors">Главная</button>
+                <button onClick={() => scrollToSection('бронирование')} className="text-left py-2 text-gray-700 hover:text-red-600 transition-colors">Бронирование</button>
+                <button onClick={() => scrollToSection('оплата')} className="text-left py-2 text-gray-700 hover:text-red-600 transition-colors">Оплата</button>
+                <button onClick={() => scrollToSection('контакты')} className="text-left py-2 text-gray-700 hover:text-red-600 transition-colors">Контакты</button>
+              </nav>
+            </div>
+          )}
           </div>
         </div>
       </header>
@@ -40,10 +66,10 @@ export default function Index() {
       <section id="главная" className="py-20 bg-gradient-to-br from-red-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
               Надежное хранение ваших вещей
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg md:text-xl text-gray-600 mb-8">
               Современный склад с индивидуальными ячейками. Безопасность, удобство и доступность 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -99,11 +125,11 @@ export default function Index() {
 
       <BookingForm />
 
-      {/* Cell Sizes */}
-      <section className="py-16 bg-white">
+      {/* Cell Sizes / Tariffs */}
+      <section id="тарифы" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Размеры ячеек
+            Тарифы
           </h2>
           
           <div className="flex justify-center">
@@ -165,8 +191,252 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Security */}
+      <section id="безопасность" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Безопасность
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Icon name="Shield" className="w-8 h-8 text-red-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Видеонаблюдение</h3>
+              <p className="text-gray-600">Круглосуточное видеонаблюдение во всех зонах склада</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Icon name="Lock" className="w-8 h-8 text-red-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Замки</h3>
+              <p className="text-gray-600">Надежные замки на каждой ячейке</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Icon name="UserCheck" className="w-8 h-8 text-red-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Контроль доступа</h3>
+              <p className="text-gray-600">Доступ только по личному коду клиента</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section id="как-работает" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Как это работает
+          </h2>
+          
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">
+                1
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Выберите тариф</h3>
+              <p className="text-gray-600 text-sm">Выберите подходящий период аренды</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">
+                2
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Оформите бронь</h3>
+              <p className="text-gray-600 text-sm">Заполните форму и оплатите аренду</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">
+                3
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Получите доступ</h3>
+              <p className="text-gray-600 text-sm">Мы вышлем вам код доступа к ячейке</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">
+                4
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Пользуйтесь</h3>
+              <p className="text-gray-600 text-sm">Приезжайте в любое время 24/7</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="о-нас" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              О нас
+            </h2>
+            <p className="text-lg text-gray-600 mb-6">
+              ТопСклад — современный складской комплекс, работающий с 2020 года. 
+              Мы предоставляем надежные и безопасные услуги хранения для частных лиц.
+            </p>
+            <p className="text-gray-600 mb-8">
+              Наш склад оборудован системами видеонаблюдения, контроля доступа и обеспечивает 
+              круглосуточную доступность к вашим вещам. Мы гордимся высоким уровнем сервиса 
+              и индивидуальным подходом к каждому клиенту.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-red-600 mb-2">4+</div>
+                <p className="text-gray-600">лет на рынке</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-red-600 mb-2">500+</div>
+                <p className="text-gray-600">довольных клиентов</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-red-600 mb-2">24/7</div>
+                <p className="text-gray-600">доступ к ячейкам</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section id="отзывы" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Отзывы клиентов
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="border-red-100">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="flex text-yellow-400">
+                    ★★★★★
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Отличный сервис! Удобно расположен, всегда чисто, доступ действительно круглосуточный. 
+                  Храню сезонные вещи уже второй год."
+                </p>
+                <div className="font-semibold text-gray-900">— Анна К.</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-red-100">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="flex text-yellow-400">
+                    ★★★★★
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Надежно и безопасно. Очень удобно, что можно приехать в любое время. 
+                  Персонал всегда поможет и подскажет."
+                </p>
+                <div className="font-semibold text-gray-900">— Михаил Р.</div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Address */}
+      <section id="адрес" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Как нас найти
+          </h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <Card className="border-red-100">
+              <CardContent className="p-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Адрес склада</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-start space-x-3">
+                        <Icon name="MapPin" className="w-5 h-5 text-red-600 mt-1" />
+                        <div>
+                          <p className="font-medium text-gray-900">Московская область</p>
+                          <p className="text-gray-600">городской округ Клин, деревня Новощапово, 16, стр. 2</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <Icon name="Clock" className="w-5 h-5 text-red-600" />
+                        <span className="text-gray-700">Доступ: 24/7</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <Icon name="Car" className="w-5 h-5 text-red-600" />
+                        <span className="text-gray-700">Бесплатная парковка</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Как добраться</h3>
+                    <div className="space-y-2 text-gray-600">
+                      <p>• На автомобиле: по Ленинградскому шоссе до поворота на Клин</p>
+                      <p>• На общественном транспорте: электричка до станции Клин, далее автобус</p>
+                      <p>• Координаты для навигатора: укажем при бронировании</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Help */}
+      <section id="помощь" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Часто задаваемые вопросы
+          </h2>
+          
+          <div className="max-w-3xl mx-auto space-y-6">
+            <Card className="border-red-100">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900 mb-2">Какие вещи можно хранить?</h3>
+                <p className="text-gray-600">Любые бытовые предметы: мебель, одежда, документы, спортивный инвентарь. 
+                Запрещены: продукты питания, взрывчатые и ядовитые вещества.</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-red-100">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900 mb-2">Как происходит оплата?</h3>
+                <p className="text-gray-600">Оплата производится при бронировании банковской картой. 
+                Возможна оплата за несколько месяцев вперед со скидкой.</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-red-100">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900 mb-2">Можно ли продлить аренду?</h3>
+                <p className="text-gray-600">Да, аренду можно продлить в любой момент через личный кабинет 
+                или связавшись с нашей службой поддержки.</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-red-100">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900 mb-2">Что если я потеряю код доступа?</h3>
+                <p className="text-gray-600">Обратитесь в службу поддержки по телефону +7 918 115 22 05. 
+                После проверки личности мы восстановим доступ к ячейке.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="контакты" className="py-16 bg-white">
+      <section id="контакты" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
@@ -230,30 +500,28 @@ export default function Index() {
             <div>
               <h4 className="font-semibold mb-4">Услуги</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>Аренда ячеек</li>
-                <li>Климат-контроль</li>
-                <li>Видеонаблюдение</li>
-                <li>24/7 доступ</li>
+                <li><button onClick={() => scrollToSection('бронирование')} className="hover:text-white transition-colors">Аренда ячеек</button></li>
+                <li><button onClick={() => scrollToSection('безопасность')} className="hover:text-white transition-colors">Безопасность</button></li>
+                <li><button onClick={() => scrollToSection('как-работает')} className="hover:text-white transition-colors">Как это работает</button></li>
+                <li><button onClick={() => scrollToSection('тарифы')} className="hover:text-white transition-colors">Тарифы</button></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Компания</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>О нас</li>
-                <li>Отзывы</li>
-                <li>Вакансии</li>
-                <li>Новости</li>
+                <li><button onClick={() => scrollToSection('о-нас')} className="hover:text-white transition-colors">О нас</button></li>
+                <li><button onClick={() => scrollToSection('отзывы')} className="hover:text-white transition-colors">Отзывы</button></li>
+                <li><button onClick={() => scrollToSection('адрес')} className="hover:text-white transition-colors">Адрес</button></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Поддержка</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>Помощь</li>
-                <li>Условия использования</li>
-                <li>Политика конфиденциальности</li>
-                <li>Контакты</li>
+                <li><button onClick={() => scrollToSection('помощь')} className="hover:text-white transition-colors">Помощь</button></li>
+                <li><a href="/privacy-policy" className="hover:text-white transition-colors">Политика конфиденциальности</a></li>
+                <li><button onClick={() => scrollToSection('контакты')} className="hover:text-white transition-colors">Контакты</button></li>
               </ul>
             </div>
           </div>

@@ -492,7 +492,7 @@ export default function Index() {
                 <span className="text-xl font-bold">ТопСклад</span>
               </div>
               <p className="text-gray-400">
-                Надежное хранение ваших вещей с 2020 года
+                Надежное хранение ваших вещей с 2022 года
               </p>
             </div>
             
